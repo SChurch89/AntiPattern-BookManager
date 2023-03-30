@@ -18,9 +18,8 @@ public class BookManager {
     }
     
     public void displayBooks() {
-        // Spaghetti code anti-pattern: UI code is intertwined with business logic
-        ui.clearScreen();
-        ui.printHeader("List of Books");
+        // this method has been refactored to follow the single responsibility principle
+        
         for (Book book : books) {
             ui.printBookDetails(book);
         }
