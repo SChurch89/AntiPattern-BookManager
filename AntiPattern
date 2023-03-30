@@ -34,37 +34,32 @@ public class BookManager {
         }
     }
     
-    // Golden Hammer anti-pattern: using a single class for all UI elements
-    // regardless of their purpose
+    // / This new class is responsible for displaying books, following the separation of concerns principle
     
-    private class UI {
-        public void clearScreen() {
-            // code to clear the screen
+   public class BookDisplay {
+    
+    public void showBooks(List<Book> books) {
+        clearScreen();
+        printHeader("List of Books");
+        for (Book book : books) {
+            printBookDetails(book);
         }
+        waitForInput();
+    }
+    
+    private void clearScreen() {
+        // code to clear the screen
+    }
         
-        public void printHeader(String text) {
-            // code to print a header
-        }
+    private void printHeader(String text) {
+        // code to print a header
+    }
         
-        public void printBookDetails(Book book) {
-            // code to print book details
-        }
+    private void printBookDetails(Book book) {
+        // code to print book details
+    }
         
-        public void waitForInput() {
-            // code to wait for user input
-        }
-        
-        public void showMessage(String message) {
-            // code to show a message
-        }
-        
-        public void showError(String error) {
-            // code to show an error message
-        }
-        
-        public String getInput() {
-            // code to get user input
-            return null;
-        }
+    private void waitForInput() {
+        // code to wait for user input
     }
 }
