@@ -1,10 +1,8 @@
 public class BookManager {
-    
-    // Blob anti-pattern: BookManager class has too many responsibilities
-    // including managing books, displaying UI, handling user input, and more
+
     
     private List<Book> books;
-    private UI ui;
+    private BookDisplay display; // removed UI varuable 
     
     public BookManager() {
         books = new ArrayList<>();
