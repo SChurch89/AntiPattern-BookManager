@@ -21,14 +21,30 @@ public class BookManager {
         display.showBooks(books);
     }
     
-    public void searchBook(String title) {
+     public void searchBook(String title) {
         List<Book> searchResults = new ArrayList<>();
         for (Book book : books) {
-            if (book.getTitle().equalsIgnoreCase(title)) {
+            if (isTitleMatch(book, title)) {
                 searchResults.add(book);
             }
         }
-        display.showBooks(searchResults);
+        displayResults(searchResults);
+    }
+    
+    private boolean isTitleMatch(Book book, String title) {
+        return book.getTitle().equalsIgnoreCase(title);
+    }
+    
+    private boolean isAuthorMatch(Book book, String author) {
+        return book.getAuthor().equalsIgnoreCase(author);
+    }
+    
+    private boolean isCategoryMatch(Book book, String category) {
+        return book.getCategory().equalsIgnoreCase(category);
+    }
+    
+    private void displayResults(List<Book> searchResults) {
+        // Code to display search results goes here
     }
 }
     
