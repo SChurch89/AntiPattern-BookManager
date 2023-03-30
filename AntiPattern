@@ -1,0 +1,73 @@
+public class BookManager {
+    
+    // Blob anti-pattern: BookManager class has too many responsibilities
+    // including managing books, displaying UI, handling user input, and more
+    
+    private List<Book> books;
+    private UI ui;
+    
+    public BookManager() {
+        books = new ArrayList<>();
+        ui = new UI();
+    }
+    
+    public void addBook(Book book) {
+        books.add(book);
+    }
+    
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
+    
+    public void displayBooks() {
+        // Spaghetti code anti-pattern: UI code is intertwined with business logic
+        ui.clearScreen();
+        ui.printHeader("List of Books");
+        for (Book book : books) {
+            ui.printBookDetails(book);
+        }
+        ui.waitForInput();
+    }
+    
+    public void searchBook(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                ui.printBookDetails(book);
+            }
+        }
+    }
+    
+    // Golden Hammer anti-pattern: using a single class for all UI elements
+    // regardless of their purpose
+    
+    private class UI {
+        public void clearScreen() {
+            // code to clear the screen
+        }
+        
+        public void printHeader(String text) {
+            // code to print a header
+        }
+        
+        public void printBookDetails(Book book) {
+            // code to print book details
+        }
+        
+        public void waitForInput() {
+            // code to wait for user input
+        }
+        
+        public void showMessage(String message) {
+            // code to show a message
+        }
+        
+        public void showError(String error) {
+            // code to show an error message
+        }
+        
+        public String getInput() {
+            // code to get user input
+            return null;
+        }
+    }
+}
